@@ -1,0 +1,19 @@
+<from>
+    <input type="text" name="email">
+    <button type="submit" > ADD </button>
+</from>
+
+<script>
+    $("form").submit(function(){
+        $.ajax({
+            url: "../models/addMember.php",
+            method: "POST",
+            cache: false,
+            data: new FormData(this)
+            success: function(){
+                    console.log(msg);
+                    $("#div_content").load("./views/member.php");
+            }
+        });
+    });
+</script>
